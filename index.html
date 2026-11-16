@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Class IX – Digital Technology and Innovation Quiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#eef1f8;--card:#fff;--ink:#101936;--mut:#5a6385;--line:#d9deee;--acc:#3b3bd6;--acc2:#e8e8ff;--acc-ink:#fff;--ok:#0f7a4a;--okbg:#e2f6ec;--bad:#c4281f;--badbg:#fdeceb;--hero:#101936;--hero-ink:#fff;--cell:#2c3766;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1022;--card:#151b36;--ink:#e9ecfa;--mut:#9aa3c8;--line:#2a3260;--acc:#8c8cff;--acc2:#252b5c;--acc-ink:#0c1022;--ok:#6fe0a8;--okbg:#10301f;--bad:#ff8f87;--badbg:#391a1d;--hero:#070a18;--cell:#2a3260}}
+:root[data-theme="dark"]{--bg:#0c1022;--card:#151b36;--ink:#e9ecfa;--mut:#9aa3c8;--line:#2a3260;--acc:#8c8cff;--acc2:#252b5c;--acc-ink:#0c1022;--ok:#6fe0a8;--okbg:#10301f;--bad:#ff8f87;--badbg:#391a1d;--hero:#070a18;--cell:#2a3260}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:var(--hero);color:var(--hero-ink);padding:22px 16px 18px}
+.wrap{max-width:760px;margin:0 auto}
+h1{font-size:1.45rem;line-height:1.25;margin:0;font-weight:700}
+.meta{margin:4px 0 16px;color:#aab3dd;font-size:.95rem}
+.strip{display:flex;gap:10px;flex-wrap:wrap}
+.grp{display:flex;gap:3px;align-items:center}
+.cell{width:14px;height:20px;border-radius:3px;background:var(--cell);font-size:0}
+.cell.on{background:#8c8cff}
+.grp.cur .cell:not(.on){outline:1.5px solid #8c8cff;outline-offset:-1.5px}
+.grp .tag{font-size:.75rem;color:#aab3dd;margin-right:4px;font-weight:700}
+.grp.cur .tag{color:#fff}
+.count{margin-top:10px;font-size:.85rem;color:#aab3dd}
+main{max-width:760px;margin:0 auto;padding:20px 16px 72px}
+.instr{border-left:4px solid var(--acc);background:var(--card);padding:10px 14px;border-radius:0 8px 8px 0;font-size:.92rem;margin-bottom:22px}
+h2{font-size:1.35rem;margin:0 0 2px;font-weight:700}
+.sub{color:var(--mut);margin:0 0 6px}
+.range{display:inline-block;background:var(--acc2);color:var(--acc);font-weight:700;font-size:.85rem;padding:2px 10px;border-radius:99px;margin:6px 0 16px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px;display:flex;gap:14px}
+.num{flex:none;width:38px;height:38px;border-radius:10px;background:var(--acc);color:var(--acc-ink);display:grid;place-items:center;font-weight:700}
+.qb{flex:1;min-width:0}
+.qt{margin:6px 0 12px;font-weight:500;font-size:1.05rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:560px){.opts{grid-template-columns:1fr}.q{padding:14px;gap:10px}}
+.opt{position:relative;display:flex;gap:10px;align-items:center;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;cursor:pointer;transition:background .15s,border-color .15s}
+.opt:hover{border-color:var(--acc)}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opt .l{flex:none;width:26px;height:26px;border-radius:7px;background:var(--acc2);color:var(--acc);display:grid;place-items:center;font-weight:700;font-size:.85rem}
+.opt:has(input:checked){border-color:var(--acc);background:var(--acc2)}
+.opt:has(input:checked) .l{background:var(--acc);color:var(--acc-ink)}
+.opt:has(input:focus-visible){outline:2px solid var(--acc);outline-offset:2px}
+.tf{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tf .opt{justify-content:center;font-weight:700}
+input[type=text],textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;box-sizing:border-box}
+input[type=text]{width:140px;margin:2px 4px}
+textarea{width:100%;min-height:92px;resize:vertical}
+input[type=text]:focus,textarea:focus{outline:2px solid var(--acc);border-color:var(--acc)}
+.sp{margin:8px 0 4px;font-weight:500}
+.expr{display:inline-block;font:700 1.1rem ui-monospace,Consolas,monospace;background:var(--acc2);color:var(--acc);padding:6px 14px;border-radius:8px;margin:0 0 8px}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
+button{font:inherit;font-weight:700;border-radius:10px;padding:12px 26px;border:2px solid var(--acc);cursor:pointer;background:var(--acc);color:var(--acc-ink)}
+button.alt{background:transparent;color:var(--acc)}
+button:disabled{opacity:.35;cursor:not-allowed}
+button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.hint{color:var(--mut);font-size:.875rem;text-align:right;margin-top:8px;min-height:1.4em}
+.hidden{display:none}
+.res{border-radius:14px;padding:18px;margin-bottom:12px;border:1.5px solid var(--line);background:var(--card)}
+.res.ok{background:var(--okbg);border-color:var(--ok)}.res.bad{background:var(--badbg);border-color:var(--bad)}
+.res p{margin:0 0 6px;font-weight:500}
+.fb{font-size:.92rem}.g{color:var(--ok);font-weight:700}.r{color:var(--bad);font-weight:700}
+.model{margin-top:8px;padding:8px 12px;border-left:3px solid var(--acc);background:var(--acc2);border-radius:0 8px 8px 0;font-size:.92rem}
+.score{background:var(--hero);color:var(--hero-ink);border-radius:16px;padding:24px;margin-bottom:22px}
+.score b{font-size:2.6rem;display:block;line-height:1.1}
+.score span{color:#aab3dd;font-size:.92rem}
+/* ---- design upgrade ---- */
+body{background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:22px 22px}
+header{background:radial-gradient(620px 220px at 88% -30%,#5a5aff 0%,transparent 70%),radial-gradient(420px 160px at 0% 120%,#1fb5a0 0%,transparent 70%),var(--hero);padding:30px 16px 22px;border-radius:0 0 28px 28px}
+h1{font-size:clamp(1.5rem,4.5vw,2.1rem);letter-spacing:-.02em}
+.meta{margin-bottom:20px}
+.strip{gap:14px 16px}
+.grp{background:rgba(255,255,255,.07);padding:6px 8px;border-radius:12px;gap:4px}
+.grp.cur{background:rgba(255,255,255,.16)}
+.grp .tag{width:20px;height:20px;border-radius:6px;background:rgba(255,255,255,.15);display:grid;place-items:center;margin-right:4px}
+.grp.cur .tag{background:#fff;color:#101936}
+.cell{width:22px;height:26px;border-radius:6px;font-size:.72rem;font-weight:700;color:#aab3dd;display:grid;place-items:center;transition:background .2s,transform .2s}
+.cell.on{background:#9d9dff;color:#101936;transform:translateY(-2px);box-shadow:0 4px 10px rgba(120,120,255,.45)}
+.count{margin-top:14px;font-size:.9rem}
+main{padding-top:26px;padding-bottom:110px}
+.instr{border:1px solid var(--line);border-left:5px solid var(--acc);border-radius:12px;box-shadow:0 6px 20px rgba(30,40,120,.07)}
+#stage>h2{animation:in .4s ease both}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){#stage>h2{animation:none}.cell,.opt{transition:none}}
+h2{font-size:clamp(1.5rem,4vw,1.9rem);letter-spacing:-.02em}
+.range{background:var(--acc);color:var(--acc-ink);margin:10px 0 20px}
+.q{border-radius:18px;padding:22px;box-shadow:0 8px 24px rgba(30,40,120,.07);border-width:1.5px;transition:border-color .2s,box-shadow .2s}
+.q:has(input:checked),.q:focus-within{border-color:var(--acc)}
+.num{width:44px;height:44px;border-radius:14px;font-size:1.1rem;background:linear-gradient(135deg,#5a5aff,#3b3bd6);color:#fff}
+.qt{font-size:1.12rem;line-height:1.5}
+.opt{border-radius:12px;padding:12px 14px;background:var(--bg)}
+.opt:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(30,40,120,.1)}
+.opt:has(input:checked)::after{content:"\2713";margin-left:auto;font-weight:700;color:var(--acc)}
+.tf .opt{padding:16px;font-size:1.05rem}
+input[type=text],textarea{background:var(--bg);border-radius:12px}
+input[type=text]{border-width:0 0 2.5px 0;border-radius:8px 8px 0 0;width:150px;text-align:center;font-weight:700}
+.nav{position:sticky;bottom:0;margin:26px -16px 0;padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);align-items:center;z-index:5}
+.hint{flex:1;text-align:center;margin:0;font-size:.82rem;min-height:0}
+button{border-radius:12px;padding:13px 30px}
+#next:not(:disabled){box-shadow:0 8px 20px rgba(59,59,214,.35)}
+.res{border-radius:16px;box-shadow:0 6px 18px rgba(30,40,120,.06)}
+.score{background:radial-gradient(500px 200px at 90% -40%,#5a5aff,transparent 70%),var(--hero);border-radius:22px;padding:30px}
+.score b{font-size:3.4rem}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>Class IX – Digital Technology and Innovation</h1>
+<p class="meta">Final Assessment Quiz &nbsp;|&nbsp; Total Questions: 20</p>
+<div class="strip" id="strip" aria-hidden="true"></div>
+<div class="count" id="count"></div>
+</div></header>
+<main>
+<div class="instr" id="instr"><strong>Instructions:</strong> Answer all questions. Choose the correct answer for multiple-choice questions. Fill in the blanks with suitable words or numbers. Show your working for calculation questions.</div>
+<div id="stage"></div>
+<div class="nav" id="nav"><button class="alt" id="back">Back</button><div class="hint" id="hint"></div><button id="next">Next</button></div>
+</main>
+
+<script>
+const S=[
+{t:"Section A: Multiple-Choice Questions",s:"Choose the correct answer.",type:"mcq",qs:[
+ {n:1,q:"Which number system uses only the digits 0 and 1?",o:["Decimal","Binary","Octal","Hexadecimal"],a:1},
+ {n:2,q:"What is the smallest unit of data in a computer?",o:["Byte","Kilobyte","Bit","Megabyte"],a:2},
+ {n:3,q:"How many bits make one byte?",o:["4","8","16","32"],a:1},
+ {n:4,q:"What is the main purpose of ASCII?",o:["To represent characters using numerical codes","To store videos only","To connect computers to the internet","To measure computer speed"],a:0},
+ {n:5,q:"In a black-and-white digital image, what does the binary digit 1 represent?",o:["A white pixel","A black pixel","An audio sample","A text character"],a:0}]},
+{t:"Section B: Fill in the Blanks",s:"",type:"fill",qs:[
+ {n:6,pre:"The binary number system uses the digits",mid:["and"],post:".",a:[["0"],["1"]],ans:"0 and 1"},
+ {n:7,pre:"A group of eight bits is called a",mid:[],post:".",a:[["byte"]],ans:"byte"},
+ {n:8,pre:"The decimal number system has a base of",mid:[],post:".",a:[["10","ten"]],ans:"10"},
+ {n:9,pre:"The hexadecimal number system uses the letters",mid:["to"],post:"in addition to the digits 0 to 9.",a:[["a"],["f"]],ans:"A to F"},
+ {n:10,pre:"The process of taking measurements of a sound signal at regular intervals is called",mid:[],post:".",a:[["sampling"]],ans:"sampling"}]},
+{t:"Section C: True or False",s:"Write True or False for each statement.",type:"tf",qs:[
+ {n:11,q:"The octal number system uses the digits 0 to 7.",a:true},
+ {n:12,q:"An AND gate produces an output of 1 when at least one input is 1.",a:false},
+ {n:13,q:"A NOT gate changes an input of 0 to 1 and an input of 1 to 0.",a:true},
+ {n:14,q:"A truth table shows the possible input combinations and their corresponding outputs.",a:true}]},
+{t:"Section D: Short-Answer Questions",s:"",type:"short",qs:[
+ {n:15,q:"What is the difference between numeric data and alphanumeric data? Give one example of each.",m:"Numeric data contains only numbers (e.g. 2026). Alphanumeric data contains letters, digits and/or symbols together (e.g. A12B)."},
+ {n:16,q:"Why do computers use the binary number system to represent data?",m:"Computers are built from electronic circuits that have two states, on (1) and off (0). Binary matches these two states, so it is simple, reliable and easy to implement in hardware."},
+ {n:17,q:"What is a logic gate? Name any two types of logic gates.",m:"A logic gate is an electronic circuit that takes one or more binary inputs and produces one binary output based on a logical rule. Examples: AND gate, OR gate (also NOT, NAND, NOR, XOR)."}]},
+{t:"Section E: Number Systems and Logic",s:"",type:"calc",first:18,last:20}
+];
+S.forEach(s=>{if(s.qs){s.first=s.qs[0].n;s.last=s.qs[s.qs.length-1].n}});
+
+const ans={};let cur=0,done=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const L="ABCD";
+const has=k=>(ans[k]!==undefined&&String(ans[k]).trim()!=="");
+
+function answered(n){
+  if(n<=5||(n>=11&&n<=14))return ans["q"+n]!==undefined;
+  if(n===6||n===9)return has("q"+n+"_0")&&has("q"+n+"_1");
+  if(n>=7&&n<=10)return has("q"+n+"_0");
+  if(n===20)return has("q20a")&&has("q20b")&&has("q20c");
+  return has("q"+n);
+}
+function complete(i){const s=S[i];for(let n=s.first;n<=s.last;n++)if(!answered(n))return false;return true}
+
+function strip(){
+  let h="";
+  S.forEach((s,i)=>{
+    h+=`<div class="grp ${i===cur&&!done?"cur":""}"><span class="tag">${"ABCDE"[i]}</span>`;
+    for(let n=s.first;n<=s.last;n++)h+=`<i class="cell ${answered(n)?"on":""}">${n}</i>`;
+    h+=`</div>`;
+  });
+  $("strip").innerHTML=h;
+  let c=0;for(let n=1;n<=20;n++)if(answered(n))c++;
+  $("count").textContent=done?"Quiz submitted":`Part ${cur+1} of 5 · Questions ${S[cur].first}–${S[cur].last} of 20 · ${c} answered`;
+}
+
+function render(){
+  const sec=S[cur];
+  let h=`<h2>${sec.t}</h2>`+(sec.s?`<p class="sub">${sec.s}</p>`:"")+`<span class="range">Questions ${sec.first}–${sec.last}</span>`;
+  const card=(n,body)=>`<div class="q"><div class="num">${n}</div><div class="qb">${body}</div></div>`;
+  if(sec.type==="mcq")sec.qs.forEach(q=>{
+    h+=card(q.n,`<p class="qt">${q.q}</p><div class="opts">`+q.o.map((o,i)=>`<label class="opt"><input type="radio" name="q${q.n}" value="${i}" ${ans["q"+q.n]===i?"checked":""}><span class="l">${L[i]}</span><span>${o}</span></label>`).join("")+`</div>`)});
+  if(sec.type==="fill")sec.qs.forEach(q=>{
+    const inp=i=>`<input type="text" data-k="q${q.n}_${i}" value="${esc(ans["q"+q.n+"_"+i])}" aria-label="Blank ${i+1}">`;
+    let s=q.pre+" "+inp(0);q.mid.forEach((m,i)=>{s+=" "+m+" "+inp(i+1)});
+    h+=card(q.n,`<p class="qt">${s} ${q.post}</p>`)});
+  if(sec.type==="tf")sec.qs.forEach(q=>{
+    h+=card(q.n,`<p class="qt">${q.q}</p><div class="tf">`+["True","False"].map(v=>`<label class="opt"><input type="radio" name="q${q.n}" value="${v}" ${ans["q"+q.n]===v?"checked":""}><span>${v}</span></label>`).join("")+`</div>`)});
+  if(sec.type==="short")sec.qs.forEach(q=>{
+    h+=card(q.n,`<p class="qt">${q.q}</p><textarea data-k="q${q.n}" aria-label="Answer ${q.n}">${esc(ans["q"+q.n])}</textarea>`)});
+  if(sec.type==="calc"){
+    h+=card(18,`<p class="qt">Convert the binary number (1011) into decimal.</p><textarea data-k="q18" placeholder="Show your working" aria-label="Answer 18">${esc(ans.q18)}</textarea>`);
+    h+=card(19,`<p class="qt">Convert the decimal number (13) into binary.</p><textarea data-k="q19" placeholder="Show your working">${esc(ans.q19)}</textarea>`);
+    h+=card(20,`<p class="qt">Study the Boolean expression below.</p><div class="expr">Y= (A.B) + C</div><p class="sp">Let A equal 1, B equal 0, and C equal 1.</p>
+    <p class="sp">a. Calculate the result of A AND B.</p><input type="text" data-k="q20a" value="${esc(ans.q20a)}" aria-label="Answer a">
+    <p class="sp">b. Calculate the final output Y.</p><input type="text" data-k="q20b" value="${esc(ans.q20b)}" aria-label="Answer b">
+    <p class="sp">c. Explain how you obtained the final answer.</p><textarea data-k="q20c" aria-label="Answer c">${esc(ans.q20c)}</textarea>`);
+  }
+  $("stage").innerHTML=h;
+  $("nav").classList.remove("hidden");$("instr").classList.toggle("hidden",cur>0);
+  $("back").style.visibility=cur?"visible":"hidden";
+  $("next").textContent=cur===S.length-1?"Submit quiz":"Next";
+  check();
+}
+function check(){
+  const ok=complete(cur);$("next").disabled=!ok;
+  $("hint").textContent=ok?"":"Answer every question in this section to continue.";
+  strip();
+}
+$("stage").addEventListener("input",e=>{
+  const t=e.target;
+  if(t.type==="radio")ans[t.name]=S[cur].type==="mcq"?+t.value:t.value;
+  else if(t.dataset.k)ans[t.dataset.k]=t.value;
+  check();
+});
+$("next").onclick=()=>{if(cur<S.length-1){cur++;render()}else{done=true;results()}scrollTo(0,0)};
+$("back").onclick=()=>{cur--;render();scrollTo(0,0)};
+
+const box=(ok,b)=>`<div class="res ${ok?"ok":"bad"}">${b}</div>`;
+function results(){
+  $("nav").classList.add("hidden");$("hint").textContent="";$("instr").classList.add("hidden");strip();
+  let score=0,total=0,h="";
+  h+=`<div id="sc"></div><h2>Section A: Multiple-Choice Questions</h2><br>`;
+  S[0].qs.forEach(q=>{total++;const u=ans["q"+q.n],ok=u===q.a;if(ok)score++;
+    h+=box(ok,`<p>${q.n}. ${q.q}</p><div class="fb">Your answer: ${L[u]}. ${q.o[u]}<br>${ok?'<span class="g">Correct</span>':'<span class="r">Correct answer: '+L[q.a]+'. '+q.o[q.a]+'</span>'}</div>`)});
+  h+=`<h2 style="margin-top:26px">Section B: Fill in the Blanks</h2><br>`;
+  S[1].qs.forEach(q=>{total++;
+    const u=q.a.map((_,k)=>String(ans["q"+q.n+"_"+k]).trim());
+    const ok=q.a.every((o,k)=>o.includes(u[k].toLowerCase()));if(ok)score++;
+    h+=box(ok,`<p>${q.n}. ${q.pre} … ${q.post}</p><div class="fb">Your answer: ${esc(u.join(" / "))}<br>${ok?'<span class="g">Correct</span>':'<span class="r">Correct answer: '+q.ans+'</span>'}</div>`)});
+  h+=`<h2 style="margin-top:26px">Section C: True or False</h2><br>`;
+  S[2].qs.forEach(q=>{total++;const u=ans["q"+q.n],c=q.a?"True":"False",ok=u===c;if(ok)score++;
+    h+=box(ok,`<p>${q.n}. ${q.q}</p><div class="fb">Your answer: ${u}<br>${ok?'<span class="g">Correct</span>':'<span class="r">Correct answer: '+c+'</span>'}</div>`)});
+  h+=`<h2 style="margin-top:26px">Section D: Short-Answer Questions</h2><p class="sub">Compare your answers with the model answers.</p><br>`;
+  S[3].qs.forEach(q=>{h+=`<div class="res"><p>${q.n}. ${q.q}</p><div class="fb">Your answer: ${esc(ans["q"+q.n])}</div><div class="model"><b>Model answer:</b> ${q.m}</div></div>`});
+  h+=`<h2 style="margin-top:26px">Section E: Number Systems and Logic</h2><br>`;
+  const n18=/\b11\b/.test(ans.q18),n19=/1101/.test(ans.q19),a=String(ans.q20a).trim(),b=String(ans.q20b).trim(),n20=a==="0"&&b==="1";
+  total+=3;score+=(n18?1:0)+(n19?1:0)+(n20?1:0);
+  h+=box(n18,`<p>18. Convert the binary number (1011) into decimal.</p><div class="fb">Your answer: ${esc(ans.q18)}</div><div class="model">1×8 + 0×4 + 1×2 + 1×1 = <b>11</b></div>`);
+  h+=box(n19,`<p>19. Convert the decimal number (13) into binary.</p><div class="fb">Your answer: ${esc(ans.q19)}</div><div class="model">13 ÷ 2 = 6 r 1; 6 ÷ 2 = 3 r 0; 3 ÷ 2 = 1 r 1; 1 ÷ 2 = 0 r 1. Read the remainders from bottom to top: <b>1101</b></div>`);
+  h+=box(n20,`<p>20. Y= (A.B) + C, with A = 1, B = 0, C = 1</p><div class="fb">a. ${esc(a)} &nbsp; b. ${esc(b)}<br>c. ${esc(ans.q20c)}</div><div class="model"><b>a.</b> A AND B = 1 AND 0 = 0<br><b>b.</b> Y = 0 OR 1 = 1<br><b>c.</b> First find A.B using the AND rule (output is 1 only if both inputs are 1), which gives 0. Then apply the OR rule with C (output is 1 if at least one input is 1): 0 + 1 = 1.</div>`);
+  h=h.replace('<div id="sc"></div>',`<div class="score"><b>${score} / ${total}</b><span>Auto-marked: Sections A, B, C and Questions 18, 19, 20 (a–b). Section D and 20(c) are for you to compare with the model answers.</span><br><br><button id="retry" class="alt" style="color:#fff;border-color:#fff">Try again</button></div>`);
+  $("stage").innerHTML=h;
+  $("retry").onclick=()=>{for(const k in ans)delete ans[k];cur=0;done=false;render();scrollTo(0,0)};
+}
+render();
+</script>
+</body>
+</html>
